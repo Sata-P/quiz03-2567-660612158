@@ -2,6 +2,14 @@ import _ from "lodash";
 import { LowSync, MemorySync } from "lowdb";
 import { JSONFileSync } from "lowdb/node";
 
+export interface Database{
+
+  rooms: Room[];
+  messages: Message[];
+  user: User[];
+
+}
+
 export interface Room {
   roomId: string;
   roomName: string;
@@ -51,6 +59,8 @@ const originalDB = {
     { username: "user1", password: "1234", role: "ADMIN" },
     { username: "user2", password: "5678", role: "SUPER_ADMIN" },
   ],
+
+  
 };
 
 const onProduction = process.env.NODE_ENV === "production";
